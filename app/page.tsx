@@ -7,10 +7,10 @@ import { processDashboardData } from "@/utils/data-processor"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { AppSidebar } from "@/components/app-sidebar"
 import { ChatBot } from "@/components/chatbot"
-import { WelcomeView } from "@/pages/welcome"
-import { UploadFileView } from "@/pages/upload"
-import { OverviewView } from "@/pages/overview"
-import { DepartmentView } from "@/pages/department"
+import { WelcomeView } from "@/components/welcome-view"
+import { UploadFileView } from "@/components/upload-file-view"
+import { OverviewView } from "@/components/overview-view"
+import { DepartmentView } from "@/components/department-view"
 
 export default function TravelAuditDashboard() {
   const [activeSection, setActiveSection] = useState("welcome")
