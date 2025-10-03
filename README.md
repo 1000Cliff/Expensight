@@ -1,30 +1,16 @@
 # Expensight
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
-
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/dcliff1854s-projects/v0-design-code-request)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/hvsm1juAWXC)
+This repository contains Expensight — an expense tracking and insights app.
 
 ## Overview
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+This repository contains the source code for the Expensight web application. Deployments can be managed via your chosen platform (for example, Vercel).
 
 ## Deployment
 
-Your project is live at:
-
-**[https://vercel.com/dcliff1854s-projects/v0-design-code-request](https://vercel.com/dcliff1854s-projects/v0-design-code-request)**
-
-## Build your app
-
-Continue building your app on:
-
-**[https://v0.app/chat/projects/hvsm1juAWXC](https://v0.app/chat/projects/hvsm1juAWXC)**
+Your project may be deployed on Vercel or another hosting provider. Update the deployment link in this README if you want to point to the live site.
 
 ## How It Works
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+1. Develop locally and push changes to this repository.
+2. Your deployment platform (for example, Vercel) will build and deploy the latest version from the repository.

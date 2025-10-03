@@ -16,7 +16,9 @@ export function ChatBot({ expenseData }: ChatBotProps) {
     { id: 1, text: "Hello! I'm here to help you with the Travel Audit Dashboard. How can I assist you?", isBot: true },
   ])
   const [inputMessage, setInputMessage] = useState("")
-  const [position, setPosition] = useState({ x: window.innerWidth - 80, y: window.innerHeight - 80 })
+  // Avoid accessing `window` during server-side rendering. Use a safe default
+  // and initialize the real position on the client inside useEffect.
+  const [position, setPosition] = useState({ x: 100, y: 100 })
   const [isDragging, setIsDragging] = useState(false)
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 })
 
@@ -51,6 +53,13 @@ export function ChatBot({ expenseData }: ChatBotProps) {
       }
     }
   }, [isDragging, dragOffset])
+
+  // Set initial position on client mount using actual window size
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setPosition({ x: window.innerWidth - 80, y: window.innerHeight - 80 })
+    }
+  }, [])
 
   const getSmartResponse = (message: string): string => {
     const lowerMessage = message.toLowerCase().trim()
@@ -153,6 +162,10 @@ export function ChatBot({ expenseData }: ChatBotProps) {
     ])
   }
 
+  // Compute chat box placement safely (guard window for SSR).
+  const chatBoxLeft = typeof window !== "undefined" ? Math.min(position.x - 320, window.innerWidth - 320) : position.x - 320
+  const chatBoxTop = typeof window !== "undefined" ? Math.max(position.y - 400, 20) : Math.max(position.y - 400, 20)
+
   return (
     <>
       {/* Chat Button */}
@@ -176,7 +189,7 @@ export function ChatBot({ expenseData }: ChatBotProps) {
       {isOpen && (
         <div
           className="fixed z-40 w-80 h-96 bg-background border border-border rounded-lg shadow-xl flex flex-col"
-          style={{ left: Math.min(position.x - 320, window.innerWidth - 320), top: Math.max(position.y - 400, 20) }}
+          style={{ left: chatBoxLeft, top: chatBoxTop }}
         >
           {/* Chat Header */}
           <div className="p-2 border-b border-border flex items-center justify-between">
